@@ -74,7 +74,7 @@ Now that the dataset is complete let's gather some some insights through explora
 
 The aim here is to understand key insights for why customers may be churning to identify trends, which can provide a basis for future strategy.
 
-```{r}
+```{r message=FALSE}
 # Gender plan breakdown
 data %>% ggplot(aes(Contract, tenure, fill = gender))+
   geom_col()+
@@ -217,7 +217,7 @@ rf.accuracy <- rf_result$overall['Accuracy']
 
 ## Automated Machine Learning (AML)
 Now we'll use an automated alogorithm that searches for the best fit model including stacked ensembles and compare results.
-```{r}
+```{r message=FALSE}
 # Use the h2o package to create a best fit stacked ensemble
 h2o.init()
 
