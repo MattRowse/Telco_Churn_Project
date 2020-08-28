@@ -34,11 +34,11 @@ data <- read.csv(path)
 
 ## Project Overview
 
-This report has been prepared for the edX HarvardX: PH125.9x capstone rerement and the data is available from Kaggle [here](https://www.kaggle.com/blastchar/telco-customer-churn?select=WA_Fn-UseC_-Telco-Customer-Churn.csv).
+This report has been prepared for the edX HarvardX: PH125.9x capstone requirement and the data is available from Kaggle [here](https://www.kaggle.com/blastchar/telco-customer-churn?select=WA_Fn-UseC_-Telco-Customer-Churn.csv).
 
 The data consists of 7043 unique customer values, with 21 columns and an overall target "Churn" column.
 
-My objective in this project is to initially analyse and provide insights from the data and ultimately use this to train a Churn prediction model.
+My objective in this project is to initially analyse and provide insights from the data and ultimately use this to train a Churn prediction model which could be used for busines purposes.
 
 ```{r}
 # Perform initial checks of the data
@@ -159,6 +159,13 @@ dataT %>% ggplot(aes(tenure_bin, fill = tenure_bin)) +
        subtitle = "Again we see the short term monthly plans as an opportunity")+
   scale_fill_discrete(guide=FALSE)
 
+# Plotly object
+plota <- data %>% ggplot(aes(tenure, MonthlyCharges, colour = InternetService))+
+  geom_point()+
+  geom_smooth()+
+  ggtitle("Monthly Charges vs Tenure vs Service")+
+  labs(x="Tenure", y="Monthly Charges")
+ggplotly(plota)
 ```
 
 ## Feature Importance
